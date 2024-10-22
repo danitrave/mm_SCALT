@@ -70,12 +70,12 @@ if __name__ == "__main__":
     if backgroundFileCheck == False:
         general_probabilities=general_probabilities(general)
         cell_type_probabilites=probability_calculation(dfs,None)
-        #probabilities_ratio(cell_type_probabilites,general_probabilities)
+        probabilities_ratio(cell_type_probabilites,general_probabilities)
 
         #### Extract the total list of genes needed for further analysys ####
-        #genes = list(general_probabilities.index)
-        #dfg = pd.DataFrame.from_dict({"genes":genes})
-        #dfg.to_csv("TABLE_OF_GENES.tsv",sep="\t")
+        genes = list(general_probabilities.index)
+        dfg = pd.DataFrame.from_dict({"genes":genes})
+        dfg.to_csv("TABLE_OF_GENES.tsv",sep="\t")
     else:
         read_general = pd.read_csv("config/background_probs.tsv",sep="\t",header=0,index_col=0)
         general_probabilities = pd.DataFrame.from_dict({"probs":list(read_general["probs"])},dtype=float)
