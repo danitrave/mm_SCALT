@@ -146,27 +146,27 @@ if __name__ == "__main__":
     kind_cell_types = sys.argv[5]   #kind of cell types to use. Either "cell_types", "custom" or "naive"
     if mode == "likelihood" or mode == "naive":
         refined_counts = countsRefinement(counts_table,notation,mode,kind_cell_types)    #likelihood or naive mode
-        try:
-            os.system("zip -r originalTables_zipped.zip "+refined_counts)   #zip original file
-        except:
-            print("Error: cannot zip the original counts table!")
+        #try:
+            #os.system("zip -r originalTables_zipped.zip "+refined_counts)   #zip original file
+        #except:
+            #print("Error: cannot zip the original counts table!")
 
-        try:
-            os.system("rm -r "+refined_counts)								#remove useless files 
-        except:
-            print("Error: cannot eliminate the original read counts matrix after zipping it")
+        #try:
+            #os.system("rm -r "+refined_counts)								#remove useless files 
+        #except:
+            #print("Error: cannot eliminate the original read counts matrix after zipping it")
     elif mode == "anno":													#anno mode 
         refined_counts = countsRefinement(counts_table,notation,mode,kind_cell_types)		#counts
         refined_annotation = annotationRefinement(anno_table)				#anno
-        try:
-            os.system("zip -r originalTables_zipped.zip "+refined_counts+" "+refined_annotation)   #zip original files
-        except:
-            print("Error: cannot zip the original counts table!")
+        #try:
+            #os.system("zip -r originalTables_zipped.zip "+refined_counts+" "+refined_annotation)   #zip original files
+        #except:
+            #print("Error: cannot zip the original counts table!")
 
-        try:
-            os.system("rm -r "+refined_counts+" "+refined_annotation)		#remove useless files 
-        except:
-            print("Error: cannot eliminate the original read counts matrix after zipping it")
+        #try:
+            #os.system("rm -r "+refined_counts+" "+refined_annotation)		#remove useless files 
+        #except:
+            #print("Error: cannot eliminate the original read counts matrix after zipping it")
     else:
         print("Mode "+mode+' not available. Please select one of the following: "likelihood", "anno" or "naive"')
 

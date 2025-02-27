@@ -72,7 +72,7 @@ if __name__ == "__main__":
         cell_type_probabilites=probability_calculation(dfs,None)
         probabilities_ratio(cell_type_probabilites,general_probabilities)
 
-        #### Extract the total list of genes needed for further analysys ####
+        #### Extract the total list of genes needed for further analysis ####
         genes = list(general_probabilities.index)
         dfg = pd.DataFrame.from_dict({"genes":genes})
         dfg.to_csv("TABLE_OF_GENES.tsv",sep="\t")
@@ -108,7 +108,7 @@ if __name__ == "__main__":
         cell_type_probabilites[0].to_csv("genesCellTypes_probabilities.tsv",sep="\t")   #save the probability table
         probabilities_ratio(cell_type_probabilites[0],filtered2_general_probabilities)
 
-        #### Extract the total list of genes needed for further analysys ####
+        #### Extract the total list of genes needed for further analysis ####
         genes = list(filtered2_general_probabilities.index)
         dfg = pd.DataFrame.from_dict({"genes":genes})
         dfg.to_csv("TABLE_OF_GENES.tsv",sep="\t")

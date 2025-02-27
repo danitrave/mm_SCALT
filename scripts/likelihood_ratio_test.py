@@ -134,11 +134,11 @@ if __name__ == "__main__":
     #anno = pd.read_csv("benchmark_labels.tsv",sep="\t",header=0,index_col=None)
     #ref = list(anno["CELL_ANNOTATION"])
     #df_lrt.index = ref
-    df_lrt.to_csv("p_values.tsv",sep="\t",header=True,index=True)
+    df_lrt.to_csv(counts.split(".tsv")[0]+"_p_values.tsv",sep="\t",header=True,index=True)
     df_deltas = pd.DataFrame(lrt_run[2],columns=cell_types_names)
     df_deltas.dropna(axis=0,inplace=True)
     #df_deltas.index = ref
-    df_deltas.to_csv("deltas.tsv",sep="\t",header=True,index=True)
+    df_deltas.to_csv(counts.split(".tsv")[0]+"_deltas.tsv",sep="\t",header=True,index=True)
 
 end_time = datetime.now()
 print('Duration likelihood test: {}'.format(end_time - start_time))
