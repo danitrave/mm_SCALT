@@ -145,17 +145,17 @@ def lists_generator(counts,anno,boo,cells,genes,notation,cpus):
         pass
 
     try:
-        os.system("mv "+counts+" originalTables_zipped.zip MI_REPORT.txt boostraps_samples/ cellTypes_fromAnnotationHeatmap.png genes2remove.tsv genesCellTypes_probabilities.tsv genes_entropy.tsv genesGeneral_probabilities.tsv genesProbabilities_ratios.tsv genesRanking.tsv groupped_cell_types/ TABLE_OF_GENES.tsv "+anno+" AnnolistsBuilder_results/")
+        os.system("mv "+counts+" MI_REPORT.txt boostraps_samples/ cellTypes_fromAnnotationHeatmap.png genes2remove.tsv genesCellTypes_probabilities.tsv genes_entropy.tsv genesGeneral_probabilities.tsv genesProbabilities_ratios.tsv genesRanking.tsv groupped_cell_types/ TABLE_OF_GENES.tsv "+anno+" AnnolistsBuilder_results/")
     except:
         print("Error: cannot move intermediate files in the ./AnnolistsBuilder_results directory")
 
 ''' Positional arguments '''
 parser = argparse.ArgumentParser(description='SCALT: build the cell-type specific lists of genes starting from a counts matrix and correspoding annotation of each cell.')
-parser.add_argument("Counts",metavar="Sample",help="Sample counts")
-parser.add_argument("Anno",metavar="Annotation",help="Annotation of each cell present in the sample. It must be a tab separated file (.tsv) having N rows equal to the number of columns in the counts matrix (cells) and 1 column reporting the correspoding annotation.")
+parser.add_argument("Counts",metavar="Counts",help="Sample counts")
+parser.add_argument("Anno",metavar="Anno",help="Annotation of each cell present in the sample. It must be a tab separated file (.tsv) having N rows equal to the number of columns in the counts matrix (cells) and 1 column reporting the correspoding annotation.")
 ''' Optional arguments '''
-parser.add_argument('-Boo',metavar='--Boostraps',default="100",help="Number of boostrap samples required to estimate probabilities. The default value is 100.")
-parser.add_argument('-Cells',metavar='--Cells',default="100",help="Number cells to collect randomly per each cell type in each boostrap sample. The default value is 100.")
+parser.add_argument('-Boo',metavar='--Boo',default="100",help="Number of bootstrap samples required to estimate probabilities. The default value is 100.")
+parser.add_argument('-Cells',metavar='--Cells',default="100",help="Number cells to collect randomly per each cell type in each bootstrap sample. The default value is 100.")
 parser.add_argument('-Genes',metavar='--Genes',default="100",help="Number of genes that the lists will have at the end. The default value is 100.")
 parser.add_argument("-Notation",metavar="--Notation",default="ensembl_id",help='Type of gene notation to use. The defaul is "ensembl_id". Write "gene_symbol" to switch to gene symbol notation.')
 parser.add_argument("-CPUs",metavar="--CPUs",default="1",help='Number of processors employed. The default number is 1.')
